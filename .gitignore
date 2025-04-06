@@ -1,5 +1,3 @@
+pipeline.log
 data/raw/*.csv
 data/processed/*.csv
-__pycache__/
-*.pyc
-venv/
