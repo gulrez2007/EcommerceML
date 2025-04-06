@@ -21,10 +21,10 @@ This project leverages the **Brazilian E-Commerce Public Dataset by Olist** (100
 
 ## Processing
 - **Pure Python Pipeline** (`src/python_only_pipeline.py`):
-- Loads 99,441 rows, cleans to 96,478 "delivered" orders (no duplicates).
-- Adds `delivery_time_days`: 96,470 with calculated times, 8 N/A due to missing delivery data.
-- Runtime: ~6.6 seconds on a standard machine.
-- Output: `data/processed/python_only_processed_orders.csv`.
+  - Loads 99,441 rows, cleans to 96,478 "delivered" orders (no duplicates).
+  - Adds `delivery_time_days`: 96,470 with calculated times, 8 N/A due to missing delivery data.
+  - Runtime: ~6.6 seconds on a standard machine.
+  - Output: `data/processed/python_only_processed_orders.csv`.
 
 - **Optimized Pandas Pipeline** (`src/pandas_pipeline.py`):
   - Same processing as above, leveraging Pandas’ vectorized operations.
