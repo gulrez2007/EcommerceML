@@ -10,11 +10,18 @@ This project leverages the **Brazilian E-Commerce Public Dataset by Olist** (100
 
 ## Dataset
 - Source: [Olist Brazilian E-Commerce Dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
-- File: `olist_orders_dataset.csv`
+- File: `olist_orders_dataset.csv` (not included)
+- License: CC BY-NC-SA 4.0
 
-## Setup
+## Setup - For python only pipeline
 1. Clone: `git clone https://github.com/gulrez2007/EcommerceML.git`
-2. Install: `pip install -r requirements.txt`
-3. Run: `python src/load_data.py`
+2. Run: `python src/python_only_pipeline.py` 
 
-*Work in Progress - Next: Churn Prediction Model*
+## Processing
+- Loads 99,441 rows, cleans to 96,478 "delivered" orders (no duplicates).
+- Adds `delivery_time_days`: 96,470 with calculated times, 8 N/A due to missing delivery data.
+- Runtime: ~6.6 seconds on a standard machine.
+
+*Work in Progress - 
+    Next: pandas base pipeline
+    future: Churn Prediction Model*
