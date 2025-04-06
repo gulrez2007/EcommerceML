@@ -15,13 +15,31 @@ This project leverages the **Brazilian E-Commerce Public Dataset by Olist** (100
 
 ## Setup - For python only pipeline
 1. Clone: `git clone https://github.com/gulrez2007/EcommerceML.git`
-2. Run: `python src/python_only_pipeline.py` 
+2. **Requirements**: Python 3.8+, Pandas (`pip install pandas`)
+3. **Run Pure Python**: `python src/python_only_pipeline.py`
+4. **Run Pandas**: `python src/pandas_pipeline.py`
 
 ## Processing
+- **Pure Python Pipeline** (`src/python_only_pipeline.py`):
 - Loads 99,441 rows, cleans to 96,478 "delivered" orders (no duplicates).
 - Adds `delivery_time_days`: 96,470 with calculated times, 8 N/A due to missing delivery data.
 - Runtime: ~6.6 seconds on a standard machine.
+- Output: `data/processed/python_only_processed_orders.csv`.
+
+- **Optimized Pandas Pipeline** (`src/pandas_pipeline.py`):
+  - Same processing as above, leveraging Pandas’ vectorized operations.
+  - Runtime: ~2.1s (3x faster than pure Python) on a standard machine (HDD).
+  - Features: Scalable chunk processing, rotating logs (`pandas_pipeline.log`), robust error handling.
+  - Output: `data/processed/pandas_processed_orders.csv`.
+
+## Results
+- **Pure Python**: Processes 99,441 rows in ~6.6s, suitable for learning basic Python.
+- **Pandas**: Processes the same in ~2.1s, optimized for speed and scalability.
+
+## Troubleshooting
+- Enable detailed logs by uncommenting `logger.setLevel(logging.DEBUG)` in `src/pandas_pipeline.py`.
+- Check `pandas_pipeline.log` for runtime breakdowns and errors.
 
 *Work in Progress - 
-    Next: pandas base pipeline
-    future: Churn Prediction Model*
+- EDA on `pandas_processed_orders.csv` to explore delivery times and churn predictors.
+- ML model for churn prediction and API deployment.

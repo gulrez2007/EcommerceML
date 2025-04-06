@@ -1,3 +1,4 @@
-pipeline.log
+*.log
+*.pdf
 data/raw/*.csv
 data/processed/*.csv

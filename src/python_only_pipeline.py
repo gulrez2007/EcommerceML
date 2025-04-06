@@ -2,13 +2,13 @@ import csv
 import logging
 import os
 from datetime import datetime
-from typing import List, Dict, Callable
+from typing import Callable, Dict, List
 
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
-    filename="pipeline.log"
+    filename="python_only_pipeline.log"
 )
 
 NOT_DELIVERED = "Not Delivered"  # Constant for missing delivery dates
@@ -153,7 +153,12 @@ class EcommercePipeline:
 
 
 if __name__ == "__main__":
+    # Hardcoded paths for simplicity
     input_file = "data/raw/olist_orders_dataset.csv"
-    output_file = "data/processed/processed_orders.csv"
+    output_file = "data/processed/python_only_processed_orders.csv"
+
+    # Uncomment to enable debug logging
+    # logger.setLevel(logging.DEBUG)
+
     pipeline = EcommercePipeline(input_file, output_file)
     pipeline.run()
